@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Add player</h1>
+  <form [formGroup]="fromGroup" class="form">
+    <mat-form-field appearance="outline" class="field">
+      <mat-select placeholder="Select team" formControlName="select">
+        <mat-option *ngFor="let team of dataService.teams" [value]="team.name">
+          {{team.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Give the player name" formControlName="name">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Age</mat-label>
+      <input matInput placeholder="Give the player age" formControlName="age">
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="!fromGroup.valid" (click)="addPlayer()">Add</button>
+  </form>
+</div>

@@ -1,0 +1,6 @@
+<div class="container">
+  <h1>Teams</h1>
+  <mat-accordion>
+    <app-team [name]="team.name" [players]="team.players" *ngFor="let team of dataService.teams"></app-team>
+  </mat-accordion>
+</div>

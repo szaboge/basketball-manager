@@ -1,0 +1,14 @@
+<mat-expansion-panel class="container">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{name}}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div *ngFor="let player of players">
+    <span><strong>Name:</strong> {{player.name}}</span>
+    <span><strong> Age:</strong> {{player.age}}</span>
+  </div>
+  <div *ngIf="!players?.length">
+    No members of this team
+  </div>
+</mat-expansion-panel>
