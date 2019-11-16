@@ -3,7 +3,7 @@
   <form [formGroup]="fromGroup" class="form">
     <mat-form-field appearance="outline" class="field">
       <mat-select placeholder="Select team" formControlName="select">
-        <mat-option *ngFor="let team of dataService.teams" [value]="team.name">
+        <mat-option *ngFor="let team of teams | async" [value]="team.name">
           {{team.name}}
         </mat-option>
       </mat-select>

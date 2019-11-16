@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from '../services/data.service';
+import {DataService, Team} from '../services/data.service';
+import {BehaviorSubject} from 'rxjs';
 
 @Component({
   selector: 'app-teams',
@@ -7,10 +8,15 @@ import {DataService} from '../services/data.service';
   styleUrls: ['./teams.component.scss']
 })
 export class TeamsComponent implements OnInit {
+  teams = new BehaviorSubject<Array<Team>>(null);
 
   constructor(public dataService: DataService) { }
 
   ngOnInit() {
+    this.dataService.getTeams()
+      .subscribe((value: Array<Team>) => {
+      this.teams.next(value);
+    });
   }
 
 }
